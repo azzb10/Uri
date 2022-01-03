@@ -23,4 +23,4 @@ const animal = {
   }
 }
 
-console.log(animal[lines[0]][lines[1]][lines[2]])
+console.log(animal[lines[0]][lines[1]][lines[2]] || "animal não encontrado");
