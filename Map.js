@@ -4,6 +4,4 @@ function addOne(number) {
   return number + 1
 }
 
-x.map(addOne);
-
-console.log(x)
+console.log(x.map(addOne))
