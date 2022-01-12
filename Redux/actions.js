@@ -1,14 +1,14 @@
 //action types
-const UPDATE_USER = 'UPDATE_USER'
-const UPDATE_CONTACT = 'UPDATE_CONTACT'
+export const UPDATE_USER = 'UPDATE_USER'
+export const UPDATE_CONTACT = 'UPDATE_CONTACT'
 
 //action creators
-const updateUser = update => ({
+export const updateUser = update => ({
   type: UPDATE_USER,
   payload: update
 })
 
-const addContact = newContact => ({
+export const addContact = newContact => ({
   type: UPDATE_CONTACT,
   payload: newContact
 })
