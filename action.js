@@ -23,8 +23,8 @@ const reducer = (state, action) => {
 
 const store = new Store(reducer, {})
 
-store.dispatch({foo: "foo"})
-store.dispatch({bar: "bar"})
-store.dispatch({foo: "baz"})
+store.dispatch({type: 'UPDATE_USER', payload: {foo: "foo"}})
+store.dispatch({type: 'UPDATE_USER', payload: {bar: "bar"}})
+store.dispatch({type: 'UPDATE_USER', payload: {foo: "baz"}})
 
 console.log(store.getState())
