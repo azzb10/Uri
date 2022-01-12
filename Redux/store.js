@@ -12,3 +12,5 @@ store.dispatch(addContact({name: 'MyName', number: '12345687'}))
 store.dispatch(addContact({name: 'YourName', number: '5678934567'}))
 
 console.log(store.getState())
+
+export default store;
