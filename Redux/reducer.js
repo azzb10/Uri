@@ -4,23 +4,26 @@ import { UPDATE_USER, UPDATE_CONTACT } from './actions';
 
 //const {createStore, combineReducers} = require('redux')
 
-const merge = (prev, next) => Object.assign({}, prev, next)
+const merge = (prev, next) => Object.assign({}, prev, next);
 
 const contactReducer = (state = [], action) => {
-  if(action.type === UPDATE_CONTACT){
-    return [...state, action.payload]
+  switch (action.type) {
+    case UPDATE_CONTACT:
+      return [...state, action.payload];
+    default:
+      return state;
   }
-  return state
 }
 
 const userReducer = (state = {}, action) => {
-  if(action.type === UPDATE_USER){
-    return merge(state, action.payload)
+  switch (action.type) {
+    case UPDATE_USER:
+      return merge(state, action.payload);
+    case UPDATE_CONTACT:
+      return(merge(state, {prevContact: action.payload}));
+    default:
+      return state;
   }
-  if(action.type === UPDATE_CONTACT){
-    return(merge(state, {prevContact: action.payload}))
-  }
-  return state
 }
 
 const reducer = combineReducers({
