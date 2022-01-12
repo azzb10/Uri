@@ -1,4 +1,5 @@
-import {createStore} from redux;
+//import {createStore, combineReducers} from redux;
+const {createStore, combineReducers} = require('redux')
 
 //action types
 const UPDATE_USER = 'UPDATE_USER'
@@ -18,14 +19,14 @@ const addContact = newContact => ({
 const DEFAULT_STATE = {user: {}, contacts: []}
 const merge = (prev, next) => Object.assign({}, prev, next)
 
-const contactReducer = (state, action) => {
+const contactReducer = (state = [], action) => {
   if(action.type === UPDATE_CONTACT){
     return [...state, action.payload]
   }
   return state
 }
 
-const userReducer = (state, action) => {
+const userReducer = (state = {}, action) => {
   if(action.type === UPDATE_USER){
     return merge(state, action.payload)
   }
@@ -35,9 +36,9 @@ const userReducer = (state, action) => {
   return state
 }
 
-const reducer = (state, action) => ({
-  user: userReducer(state.user, action),
-  contacts: contactReducer(state.contacts, action)
+const reducer = combineReducers({
+  user: userReducer,
+  contacts: contactReducer,
 })
 
 const store = createStore(reducer, DEFAULT_STATE)
