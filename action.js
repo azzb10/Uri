@@ -33,14 +33,14 @@ const reducer = (state, action) => {
 
   return state
 }
-const updateUser = (update) => ({
+const updateUser = update => ({
   type: UPDATE_USER,
   payload: update
 })
 
-const updateContact = (update) => ({
+const updateContact = newContact => ({
   type: UPDATE_CONTACT,
-  payload: update
+  payload: newContact
 })
 
 const store = new Store(reducer, DEFAULT_STATE)
