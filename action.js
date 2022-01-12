@@ -2,6 +2,17 @@
 const UPDATE_USER = 'UPDATE_USER'
 const UPDATE_CONTACT = 'UPDATE_CONTACT'
 
+//action creators
+const updateUser = update => ({
+  type: UPDATE_USER,
+  payload: update
+})
+
+const updateContact = newContact => ({
+  type: UPDATE_CONTACT,
+  payload: newContact
+})
+
 class Store {
   constructor(reducer, initialState) {
     this.reducer = reducer
@@ -33,15 +44,6 @@ const reducer = (state, action) => {
 
   return state
 }
-const updateUser = update => ({
-  type: UPDATE_USER,
-  payload: update
-})
-
-const updateContact = newContact => ({
-  type: UPDATE_CONTACT,
-  payload: newContact
-})
 
 const store = new Store(reducer, DEFAULT_STATE)
 
