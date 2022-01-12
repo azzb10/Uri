@@ -19,7 +19,7 @@ const userReducer = (state, update) => merge(state, update)
 
 const reducer = (state, action) => {
   if(action.type === 'UPDATE_USER'){
-    merge(state, {user: userReducer(state.user, action.payload)})
+    return merge(state, {user: userReducer(state.user, action.payload)})
   }
 
   return state
