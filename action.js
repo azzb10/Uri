@@ -1,3 +1,7 @@
+//action types
+const UPDATE_USER = 'UPDATE_USER'
+const UPDATE_CONTACT = 'UPDATE_CONTACT'
+
 class Store {
   constructor(reducer, initialState) {
     this.reducer = reducer
@@ -14,9 +18,6 @@ class Store {
 }
 
 const DEFAULT_STATE = {user: {}, contacts: []}
-const UPDATE_USER = 'UPDATE_USER'
-const UPDATE_CONTACT = 'UPDATE_CONTACT'
-
 const merge = (prev, next) => Object.assign({}, prev, next)
 const contactReducer = (state, newContact) => [...state, newContact]
 const userReducer = (state, update) => merge(state, update)
@@ -32,6 +33,10 @@ const reducer = (state, action) => {
 
   return state
 }
+const updateUser = (update) => ({
+  type: UPDATE_USER,
+  payload: update
+})
 
 const store = new Store(reducer, DEFAULT_STATE)
 
