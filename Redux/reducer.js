@@ -1,22 +1,9 @@
-//import {createStore, combineReducers} from redux;
-const {createStore, combineReducers} = require('redux')
+import {combineReducers} from redux;
 
-//action types
-const UPDATE_USER = 'UPDATE_USER'
-const UPDATE_CONTACT = 'UPDATE_CONTACT'
+import { UPDATE_USER, UPDATE_CONTACT } from './actions';
 
-//action creators
-const updateUser = update => ({
-  type: UPDATE_USER,
-  payload: update
-})
+//const {createStore, combineReducers} = require('redux')
 
-const addContact = newContact => ({
-  type: UPDATE_CONTACT,
-  payload: newContact
-})
-
-const DEFAULT_STATE = {user: {}, contacts: []}
 const merge = (prev, next) => Object.assign({}, prev, next)
 
 const contactReducer = (state = [], action) => {
@@ -41,13 +28,4 @@ const reducer = combineReducers({
   contacts: contactReducer,
 })
 
-const store = createStore(reducer, DEFAULT_STATE)
-
-store.dispatch(updateUser({foo: "foo"}))
-store.dispatch(updateUser({bar: "bar"}))
-store.dispatch(updateUser({foo: "baz"}))
-
-store.dispatch(addContact({name: 'MyName', number: '12345687'}))
-store.dispatch(addContact({name: 'YourName', number: '5678934567'}))
-
-console.log(store.getState())
+export default reducer;
