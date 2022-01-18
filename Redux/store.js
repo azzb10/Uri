@@ -1,6 +1,7 @@
 import {createStore} from redux;
 //const {createStore, combineReducers} = require('redux')
 import reducer from './reducer'
+import { addContact, updateUser } from './actions';
 
 const store = createStore(reducer, DEFAULT_STATE)
 
